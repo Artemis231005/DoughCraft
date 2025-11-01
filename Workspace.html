@@ -1,0 +1,119 @@
+<!-- Holds AI tools used -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Workspace - DoughCraft</title>
+
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="ai-style.css" />
+        <script src="ai-script.js" defer></script>
+    </head>
+
+    <body>
+        <div id="root">
+
+            <header class="top-header">
+                <div class="header-right">
+                    <img src="logo.png" alt="Logo" class="header-logo" />
+                    <h2 class="header-title">DoughCraft</h2>
+                </div>
+            </header>
+
+            <nav class="nav-links">
+                <a href="RecipeBlogs.html">Recipe Blogs</a>
+                <a href="Workspace.html">My Workspace</a>
+                <a href="Workspace.html#generate">Generate Recipe</a>
+                <a href="Workspace.html#convert">Convert Recipe</a>
+                <a href="Workspace.html#fusion">AI Fusion</a>
+                <a href="Workspace.html#assistant">AI Blogging Assistant</a>
+            </nav>
+
+            <main class="ai-page-container">
+                <h1>My Workspace 🎨</h1>
+
+                <nav class="ai-tabs">
+                    <button class="ai-tab-button" data-tab="generate">Generate Recipe</button>
+                    <button class="ai-tab-button" data-tab="convert">Convert Recipe</button>
+                    <button class="ai-tab-button" data-tab="fusion">AI Fusion</button>
+                    <button class="ai-tab-button" data-tab="assistant">AI Assistant</button>
+                </nav>
+
+                <div id="generate" class="ai-panel">
+                    <form class="ai-form" id="generate-form">
+                        <div class="form-group">
+                            <label for="ingredients">What ingredients do you have available?</label>
+                            <textarea id="ingredients" placeholder="e.g., eggs, flour, chocolate, milk ..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="difficulty">Select Difficulty</label>
+                            <select id="difficulty">
+                                <option value="Quick Snack">Quick Snack</option>
+                                <option value="Normal Baking">Normal Baking</option>
+                                <option value="Gourmet Baking">Gourmet Baking</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="form-button">Generate Recipe</button>
+                    </form>
+                </div>
+                
+                <div id="convert" class="ai-panel">
+                    <form class="ai-form" id="convert-form">
+                        <div class="form-group">
+                            <label for="original-recipe">Paste your original recipe here:</label>
+                            <textarea id="original-recipe" placeholder="Title: Chocolate Cake... Ingredients: 1 cup flour..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="modification">How do you want to modify it?</label>
+                            <select id="modification">
+                                <option value="Vegan">Make it Vegan</option>
+                                <option value="Gluten-Free">Make it Gluten-Free</option>
+                                <option value="Healthy">Make it Healthier</option>
+                                <option value="Indian">Add an Indian Twist</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="form-button">Convert Recipe</button>
+                    </form>
+                </div>
+
+                <div id="fusion" class="ai-panel">
+                    <form class="ai-form" id="fusion-form">
+                        <div class="form-group">
+                            <label for="recipe-a">Recipe 1</label>
+                            <input type="text" id="recipe-a" placeholder="e.g., Walnut Brownies" />
+                        </div>
+                        <div class="form-group">
+                            <label for="recipe-b">Recipe 2</label>
+                            <input type="text" id="recipe-b" placeholder="e.g., Blueberry Cheesecake" />
+                        </div>
+                        <button type="submit" class="form-button">Generate Fusion</button>
+                    </form>
+                </div>
+
+                <div id="assistant" class="ai-panel">
+                    <form class="ai-form" id="assistant-form">
+                        <div class="form-group">
+                            <label for="blog-draft">Paste your recipe draft or ideas here:</label>
+                            <textarea id="blog-draft" placeholder="My new recipe is a simple vanilla sponge cake..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="help-type">What do you need help with?</label>
+                            <select id="help-type">
+                                <option value="Title">Suggest a creative title</option>
+                                <option value="Intro">Write a catchy opening paragraph</option>
+                                <option value="Tags">Suggest appropriate tags</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="form-button">Get AI Help</button>
+                    </form>
+                </div>
+
+                <div id="ai-output" class="ai-output-area">AI results will appear here...</div>
+        </main>
+        <footer class="app-footer">© 2025 DoughCraft. All rights reserved.</footer>
+        </div>
+    </body>
+</html>
+    
