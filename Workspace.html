@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DoughCraft | My Workspace</title>
+    <link rel="stylesheet" href="Workspace.css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <header class="top-header">
+        <div class="header-right">
+          <img src="your-logo.png" alt="Logo" class="header-logo" />
+          <h2 class="header-title">DoughCraft</h2>
+        </div>
+      </header>
+
+      <nav class="nav-links">
+        <a href="RecipeBlogs.html">Recipe Blogs</a>
+        <a href="Workspace.html" class="active">My Workspace</a>
+        <a href="#">Generate Recipe</a>
+        <a href="#">Convert Recipe</a>
+        <a href="#">AI Fusion</a>
+        <a href="#">AI Blogging Assistant</a>
+      </nav>
+
+      <div class="main-content">
+        <section class="workspace">
+          <h1>My Workspace</h1>
+
+          <div class="workspace-options">
+            <button type="button" id="btn-view-bookmarks">View Bookmarked Blogs</button>
+            <button type="button" id="btn-write-blog">Write a Blog Post</button>
+          </div>
+
+          <div id="workspace-content"></div>
+        </section>
+      </div>
+
+      <footer class="app-footer">© 2025 DoughCraft. All rights reserved.</footer>
+    </div>
+
+    <script>
+    const container = document.getElementById('workspace-content');
+    const btnView = document.getElementById('btn-view-bookmarks');
+    const btnWrite = document.getElementById('btn-write-blog');
+
+    function showBookmarks() {
+        const bookmarks = JSON.parse(localStorage.getItem('bookmarkedBlogs')) || [];
+        container.innerHTML = '';
+
+        if (bookmarks.length === 0) {
+        container.innerHTML = '<p>No bookmarked blogs yet.</p>';
+        return;
+        }
+
+        bookmarks.forEach(blog => {
+        const card = document.createElement('div');
+        card.className = 'bookmark-card';
+        card.innerHTML = `
+            <img src="${blog.img}" alt="${escapeHtml(blog.title)}" />
+            <div>
+            <h3>${escapeHtml(blog.title)}</h3>
+            <p>${escapeHtml(blog.desc)}</p>
+            <a href="RecipeBlogs.html" class="read-more">Read More</a>
+            </div>
+        `;
+        container.appendChild(card);
+        });
+    }
+
+    function writeBlog() {
+        container.innerHTML = `
+        <div class="editor-card">
+            <label>Title</label>
+            <input id="blog-title" type="text" placeholder="Enter a title" />
+
+            <label>Image URL</label>
+            <input id="blog-img" type="text" placeholder="Enter image URL (optional)" />
+
+            <label>Tagline</label>
+            <input id="blog-tagline" type="text" placeholder="Enter a short tagline" />
+
+            <label>Blog Description</label>
+            <textarea id="blog-desc" placeholder="Write your blog description..." rows="6"></textarea>
+
+            <div style="margin-top:12px; text-align:right;">
+            <button id="submit-blog" class="submit-btn" type="button">Submit</button>
+            </div>
+        </div>
+        `;
+
+        document.getElementById('submit-blog').addEventListener('click', () => {
+        const title = document.getElementById('blog-title').value.trim();
+        const img = document.getElementById('blog-img').value.trim();
+        const tagline = document.getElementById('blog-tagline').value.trim();
+        const desc = document.getElementById('blog-desc').value.trim();
+
+        if (!title) {
+            alert('Please enter a title.');
+            return;
+        }
+
+        const userBlogs = JSON.parse(localStorage.getItem('userBlogs')) || [];
+
+        userBlogs.unshift({
+            title,
+            img: img || 'https://via.placeholder.com/400x300',
+            tagline,
+            desc
+        });
+
+        localStorage.setItem('userBlogs', JSON.stringify(userBlogs));
+
+        alert('Blog post added successfully!');
+        container.innerHTML = '<p>Your blog has been saved. You can view it on the <strong>Recipe Blogs</strong> page.</p>';
+        });
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    btnView.addEventListener('click', showBookmarks);
+    btnWrite.addEventListener('click', writeBlog);
+    </script>
+  </body>
+</html>
