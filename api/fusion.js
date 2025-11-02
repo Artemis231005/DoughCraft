@@ -1,4 +1,5 @@
-import OpenAI from 'openai'; 
+import OpenAI from 'openai';
+
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -12,6 +13,7 @@ export default async function handler(req, res) {
   try {
     const { recipeA, recipeB } = req.body;
 
+   
     const prompt = `
       You are "Doughcraft," a highly creative experimental chef.
       A user wants to fuse two dishes:
@@ -35,12 +37,14 @@ export default async function handler(req, res) {
       }
     `;
 
+    
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: prompt }],
       response_format: { type: "json_object" },
     });
 
+    
     const recipeJson = completion.choices[0].message.content;
     res.status(200).json(JSON.parse(recipeJson));
 
