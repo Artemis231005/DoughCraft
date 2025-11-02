@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f9d8f0, #e6ccff);
+  color: #5b3775;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+header {
+  background: #fce4f7;
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  color: #b57edc;
+  font-size: 2rem;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #7a4ea0;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #d18aff;
+}
+
+.hero {
+  padding: 80px 20px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: #6a358f;
+}
+
+.hero button {
+  margin-top: 20px;
+  background: #d8b4f8;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background: #f3c4fb;
+}
+
+.recipes {
+  padding: 60px 20px;
+}
+
+.recipe-card {
+  display: inline-block;
+  background: #fff7ff;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 15px;
+  width: 230px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+.recipe-card img {
+  width: 80px;
+}
+
+.about, .contact {
+  padding: 60px 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+input, textarea {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d4aefc;
+}
+
+button[type="submit"] {
+  background: #d8b4f8;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #f3c4fb;
+}
+
+footer {
+  margin-top: 50px;
+  padding: 15px;
+  background: #fce4f7;
+  font-size: 0.9rem;
+  color: #7a4ea0;
+}
